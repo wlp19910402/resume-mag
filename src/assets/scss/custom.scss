@@ -1,0 +1,5 @@
+$body-color: #111;
+$theme-colors: ("primary": yellow,
+  "danger": #ff4136);
+$enable-gradients:true;
+@import "bootstrap/scss/bootstrap.scss";
