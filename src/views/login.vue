@@ -1,41 +1,40 @@
 <template>
   <b-card
-    class="text-center qm-border-null qm-radius-null qm-login-box bg-gradient-dark"
+    class="qm-border-null qm-radius-null qm-login-page p-0"
     :img-src="loginBg"
     overlay
     img-alt="Image"
     border-variant="light"
   >
-    <div class="row justify-content-md-center justify-content-sm-center">
-      <!-- <div class="col-sm-4 col-md-4"></div> -->
-      <div class="col-xs-12 col-sm-8 col-md-8">
-        <div class="qm-login-form m-auto p-3">
+    <div
+      class="qm-login-box d-flex align-items-center justify-content-center row mx-0"
+    >
+      <div class="col-xs-12 col-sm-8 col-md-8 pb-5">
+        <b-img
+          class="qm-login-logo"
+          center
+          :src="logo"
+          rounded="circle"
+          alt="Center image"
+        ></b-img>
+        <div class="qm-login-form mx-auto px-3 pt-3 mt-3 mb-4 pb-5">
           <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-            <b-form-group id="input-group-1" label="用户名" label-for="input-1">
+            <h5 class="text-center text-monospace text-muted">登 录</h5>
+            <b-input-group prepend="用户名" class="mt-3 mb-4">
               <b-form-input
-                id="input-1"
-                v-model="form.email"
-                type="email"
-                required
+                v-model="form.name"
                 placeholder="请输入用户名"
               ></b-form-input>
-            </b-form-group>
-            <b-form-group id="input-group-2" label="密码" label-for="input-2">
+            </b-input-group>
+            <b-input-group prepend="密码" class="mt-3 mb-4">
               <b-form-input
-                id="input-2"
                 v-model="form.name"
-                required
                 placeholder="请输入密码"
               ></b-form-input>
-            </b-form-group>
-
-            <b-form-group id="input-group-4">
-              <b-form-checkbox-group v-model="form.checked" id="checkboxes-4">
-                <b-form-checkbox value="me">勾选</b-form-checkbox>
-              </b-form-checkbox-group>
-            </b-form-group>
-            <b-button type="submit" variant="primary">登录</b-button>
-            <b-button type="reset" variant="danger">注册</b-button>
+            </b-input-group>
+            <b-button block type="submit" variant="primary">登录</b-button>
+            <!-- <b-button type="reset" variant="danger">注册</b-button>
+            <b-button block variant="primary">Block Level Button</b-button> -->
           </b-form>
         </div>
       </div>
@@ -44,11 +43,23 @@
 </template>
 
 <script>
-import loginBg from "@/assets/images/login-bg.jpg";
+// import loginBg from "@/assets/images/login-bg.jpg";
+import logo from "@/assets/images/logo-op.png";
+// import logo from "@/assets/images/logo-op-white.png";
+import loginBg from "@/assets/images/login-bg-1.jpg";
+
 export default {
   data() {
     return {
+      mainProps: {
+        blank: true,
+        blankColor: "#fff",
+        width: 175,
+        height: 175,
+        class: "m1",
+      },
       loginBg,
+      logo,
       form: {
         email: "",
         name: "",
@@ -87,12 +98,20 @@ export default {
 };
 </script>
 <style lang="less">
-.qm-login-box {
+.qm-login-page {
   position: fixed;
   width: 100%;
   height: 100%;
   overflow: hidden;
   display: flex;
+  background: #ffffff;
+  .card-img-overlay {
+    padding: 0;
+  }
+  .qm-login-logo {
+    width: 4rem;
+    height: auto;
+  }
   .card-img {
     position: absolute;
     top: 50%;
@@ -101,14 +120,35 @@ export default {
     min-width: 100%;
     transform: translate(-50%, -50%);
     border-radius: 0;
-    filter: blur(20px);
-    background: #000000;
-    opacity: 0.5;
+    filter: blur(4px);
+    opacity: 1;
   }
-  .qm-login-form {
-    backdrop-filter: 0;
-    background-color: rgba(255, 255, 255, 0.1);
-    max-width: 30rem;
+  .qm-login-box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    .qm-login-form {
+      backdrop-filter: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      max-width: 30rem;
+      position: relative;
+      // &:after {
+      //   content: "";
+      //   width: 100%;
+      //   height: 100%;
+      //   position: absolute;
+      //   left: 0;
+      //   top: 0;
+      //   background: inherit;
+      //   filter: blur(2px);
+      //   z-index: 2;
+      // }
+      .input-group-text {
+        width: 4.8rem;
+      }
+    }
   }
 }
 </style>

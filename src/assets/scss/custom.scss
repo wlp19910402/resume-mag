@@ -1,5 +1,15 @@
 $body-color: #111;
-$theme-colors: ("primary": yellow,
+$theme-colors: ("primary": #00a4ff,
   "danger": #ff4136);
 $enable-gradients:true;
 @import "bootstrap/scss/bootstrap.scss";
+
+.custom-class {
+  display: none;
+}
+
+@include media-breakpoint-up(lg) {
+  .custom-class {
+    display: block;
+  }
+}

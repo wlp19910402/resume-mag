@@ -5,13 +5,17 @@ import App from './App'
 import router from './router'
 import {
   BootstrapVue,
+  BootstrapVueIcons,
   IconsPlugin
 } from 'bootstrap-vue'
 import '@/assets/scss/custom.scss'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/assets/less/qm-default.less'
+import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
+// import 'bootstrap-vue/src/icons.scss'
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 Vue.use(IconsPlugin)
 
 /* eslint-disable no-new */
